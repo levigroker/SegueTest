@@ -1,7 +1,7 @@
 SegueTest
 ===========
 
-This is a test application to illustrate an issue with UITabBarController and custom rewind segues.
+This is a test application to illustrate an issue with UITabBarController and custom rewind segues. This has been posted to Stack Overflow: [http://stackoverflow.com/questions/27069709/using-a-custom-unwind-segue-from-within-a-uitabbarcontrollers-more-tab](http://stackoverflow.com/questions/27069709/using-a-custom-unwind-segue-from-within-a-uitabbarcontrollers-more-tab)
 
 #### The Question
 
@@ -29,6 +29,10 @@ The goal is to use a custom `UIStoryboardSegue` for an "unwind" segue, in a situ
 2. `UITabBarController` seemingly replaces a tab's `UINavigationController` with its own private `UIMoreNavigationController` when that tab is in the "More" section of the tab bar.
 
     This is problematic. Due to issue #1 we must have custom code in the navigation controller to delegate the `segueForUnwindingToViewController:fromViewController:identifier:` call to our implementation so we can return an instance of the custom `UIStoryboardSegue` we want to use for the unwind. However, since the `UITabBarController` *replaces* our `UINavigationController` with its own (in the "More" case), our code does not get called, we are unable to return a custom instance of `UIStoryboarSegue`, and we seem to be stuck.
+
+#### Environment
+
+iOS 8.1, Xcode 6.1 (6A1052d)
 
 #### Sample Application
 
